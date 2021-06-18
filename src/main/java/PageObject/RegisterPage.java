@@ -1,43 +1,34 @@
 package PageObject;
-
-import Constant.Constant;
+import constant.Constant;
+import Common.Utilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends GeneralPage{
-    //locator
-    private final By _txtUserName = By.xpath("//input[@id='email']");
-    private final By _txtPassword = By.xpath("//input[@id='password']");
-    private final By _txtConfirmPassword = By.xpath("//input[@id='confirmPassword']");
-    private final By _txtID = By.xpath("//input[@id='pid']");
-    private final By _btnRegister = By.xpath("//input[@type='submit']");
-    private final By _txtMessageError = By.xpath("//p[@class='message error']");
-    private final By _txtSuccessMessage = By.xpath("//div[@id='content']/p");
-
+    private Utilities tools = new Utilities();
     //element
-    protected WebElement getTxtUserName(){
-        return Constant.WEBDRIVER.findElement(_txtUserName);
-    }
-    protected WebElement getTxtPassword(){
-        return Constant.WEBDRIVER.findElement(_txtPassword);
-    }
-    protected WebElement getTxtConfirmPassword(){ return Constant.WEBDRIVER.findElement(_txtConfirmPassword);}
-    protected WebElement getTxtID () { return Constant.WEBDRIVER.findElement(_txtID);}
-    protected  WebElement getBtnRegister(){return Constant.WEBDRIVER.findElement(_btnRegister);}
-    protected WebElement getTxtMessageError(){return Constant.WEBDRIVER.findElement(_txtMessageError);}
-    protected WebElement getTxtSuccessMessage(){ return Constant.WEBDRIVER.findElement(_txtSuccessMessage);}
+    public WebElement getTxtUserName = Constant.WEBDRIVER.findElement(By.cssSelector("#email"));
+    public WebElement getTxtPassword = Constant.WEBDRIVER.findElement(By.cssSelector("#password"));
+    public WebElement getTxtConfirmPassword = Constant.WEBDRIVER.findElement(By.cssSelector("#confirmPassword"));
+    public WebElement getTxtID = Constant.WEBDRIVER.findElement(By.cssSelector("#pid"));
+    public WebElement getBtnRegister = Constant.WEBDRIVER.findElement(By.xpath("//input[@type='submit']"));
+    public WebElement getTxtMessageError = Constant.WEBDRIVER.findElement(By.cssSelector(".message error"));
+    public WebElement getTxtSuccessMessage = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='content']/p"));
+    public WebElement getPidValidationMessages = Constant.WEBDRIVER.findElement(By.xpath("//label[@for='pid" +
+            "'][@class='validation-error']"));
+    public WebElement getPwdValidationMessage = Constant.WEBDRIVER.findElement(By.xpath("//label[@for='password" +
+            "'][@class='validation-error']"));
     // methods
-    public RegisterPage registerAcc(String username, String password, String confirmPassword, String id){
-        this.getTxtUserName().sendKeys(username);
-        this.getTxtPassword().sendKeys(password);
-        this.getTxtConfirmPassword().sendKeys(confirmPassword);
-        this.getTxtID().sendKeys(id);
-        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-        //get the height of the webpage and scroll to the end
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        this.getBtnRegister().click();
-        return new RegisterPage();
+    public void registerAcc(String username, String password, String confirmPassword, String id){
+        getTxtUserName.sendKeys(username);
+        getTxtPassword.sendKeys(password);
+        getTxtConfirmPassword.sendKeys(confirmPassword);
+        getTxtID.sendKeys(id);
+        tools.scrollDownToBottom();
+        getBtnRegister.click();
     }
-public String getSuccessMessage(){return this.getTxtSuccessMessage().getText();}
+    public String successMessage(){return getTxtSuccessMessage.getText();}
+    public String pidValidationMessage(){return getPidValidationMessages.getText();}
+    public String pwdValidationMessage(){return getPidValidationMessages.getText();}
+    public String messageError(){return getTxtMessageError.getText();}
 }

@@ -1,18 +1,16 @@
 package PageObject;
 
-import Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-public class ChangePasswordPage {
-
+import constant.Constant;
+public class ChangePasswordPage extends GeneralPage{
 
     //elements
-    protected WebElement getTxtCurrentPassword = Constant.WEBDRIVER.findElement(By.id("currentPassword"));
-    protected WebElement getTxtNewPassword = Constant.WEBDRIVER.findElement(By.id("newPassword"));
-    protected WebElement getTxtConfirmPassword = Constant.WEBDRIVER.findElement(By.id("confirmPassword"));
-    protected WebElement getBtnChangePassword = Constant.WEBDRIVER.findElement(By.xpath("//input[@type='submit']"));
-    protected WebElement getSuccessMessage = Constant.WEBDRIVER.findElement(By.className("message success"));
+    public WebElement getTxtCurrentPassword = Constant.WEBDRIVER.findElement(By.id("currentPassword"));
+    public WebElement getTxtNewPassword = Constant.WEBDRIVER.findElement(By.id("newPassword"));
+    public WebElement getTxtConfirmPassword = Constant.WEBDRIVER.findElement(By.id("confirmPassword"));
+    public WebElement getBtnChangePassword = Constant.WEBDRIVER.findElement(By.xpath("//input[@type='submit']"));
+    public WebElement getSuccessMessage = Constant.WEBDRIVER.findElement(By.className("message success"));
     //methods
     public String changePassword(String currentPassword, String newPassword, String confirmPassword){
         getTxtCurrentPassword.sendKeys(currentPassword);

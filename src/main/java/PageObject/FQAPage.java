@@ -1,4 +1,4 @@
 package PageObject;
 
-public class FQAPage {
+public class FQAPage extends GeneralPage{
 }

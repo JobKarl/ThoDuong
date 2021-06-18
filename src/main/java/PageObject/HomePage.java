@@ -1,22 +1,19 @@
 package PageObject;
-
-import Constant.Constant;
+import constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class HomePage extends GeneralPage {
-    //locator
-    private final By liCreateNewAcc = By.xpath("//div/a[@href='/Account/Register.cshtml']");
+
     //element
-    protected WebElement getLiCreateNewAcc(){
-        return Constant.WEBDRIVER.findElement(liCreateNewAcc);
-    }
+    public WebElement getLiCreateNewAcc = Constant.WEBDRIVER.findElement(By.xpath("//div/a[@href='/Account/Register" +
+            ".cshtml']"));
     public HomePage open(){
         Constant.WEBDRIVER.navigate().to(Constant.RAILWAY_URL);
         return this;
     }
     public RegisterPage clickCreateAnAcc(){
-        this.getLiCreateNewAcc().click();
+        getLiCreateNewAcc.click();
         return new RegisterPage();
     }
 }
