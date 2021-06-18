@@ -1,4 +1,5 @@
 package PageObject;
+
 import constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,21 +7,32 @@ import org.openqa.selenium.WebElement;
 public class TicketPricePage extends GeneralPage {
 
     //element_
-    public WebElement getTrips;
-    public WebElement getTitleTable = Constant.WEBDRIVER.findElement(By.xpath("//tbody//th"));
-    public WebElement getTypeSeat;
+    public WebElement getTrips(String nameTrips) {
+        return Constant.WEBDRIVER.findElement(By.xpath("//li[text()='" + nameTrips + "']/../following-sibling::td"));
+    }
+
+    public WebElement getTitleTable() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//tbody//th"));
+    }
+
+    public WebElement getTypeSeat(String typeSeat) {
+        return Constant.WEBDRIVER.findElement(By.xpath("//tbody//td[text()='" + typeSeat + "']/following-sibling::td" +
+                "/a[text()='Book ticket']"));
+    }
+
     //method_
-    public TicketPricePage checkNameTrip(String nameTrips){
-        getTrips = Constant.WEBDRIVER.findElement(By.xpath("//li[text()='"+nameTrips+"']/../following-sibling::td"));
-        getTrips.click();
+    public TicketPricePage checkNameTrip(String nameTrips) {
+        this.getTrips(nameTrips).click();
         return new TicketPricePage();
     }
-    public String checkTitleTable(){return getTitleTable.getText();}
-    public BookTicketPage clickBtnBookTicket(String typeSeat){
-        getTypeSeat = Constant.WEBDRIVER.findElement(By.xpath("//tbody//td[text()='"+typeSeat+"']/following-sibling::td/a[text()='Book ticket']"));
-        getTypeSeat.click();
+
+    public BookTicketPage clickBtnBookTicket(String typeSeat) {
+        this.getTypeSeat(typeSeat).click();
         return new BookTicketPage();
     }
-    public String getTextTilteTable (){return getTitleTable.getText();}
+
+    public String getTextTittleTable() {
+        return this.getTitleTable().getText();
+    }
 
 }

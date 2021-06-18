@@ -1,4 +1,5 @@
 package PageObject;
+
 import constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,74 +7,101 @@ import org.openqa.selenium.WebElement;
 public class GeneralPage {
 
     //Element
-    public WebElement getTabLogin = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account" +
-            "/Login.cshtml']"));
-    public WebElement getTabLogout = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account" +
-            "/Logout']"));
-    public WebElement getLblWelcomeMessage = Constant.WEBDRIVER.findElement(By.xpath("//div[@class='account']/strong"));
-    public WebElement getTabRegister = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account" +
-            "/Register.cshtml']"));
-    public WebElement getTitle = Constant.WEBDRIVER.findElement(By.xpath("//title"));
-    public WebElement getTabTimeTable = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='." +
-            "./Page/TrainTimeListPage.cshtml']"));
-    public WebElement getBookTicket = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='." +
-            "./Page/BookTicketPage.cshtml']"));
-    public WebElement getTicketPrice = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='." +
-            "./Page/TrainPriceListPage.cshtml']"));
-    public WebElement getFQA = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='#']"));
-    public WebElement getContact = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/Contact.cshtml']"));
-    public WebElement getTabMyTicket = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page" +
-            "/ManageTicket.cshtml']"));
-    public WebElement getTabChangePassWord = Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='." +
-            "./Account/ChangePassword.cshtml']"));
+    public WebElement getTabLogin() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']"));
+    }
+
+    public WebElement getTabLogout() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account/Logout']"));
+    }
+
+    public WebElement getLblWelcomeMessage() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@class='account']/strong"));
+    }
+
+    public WebElement getTabRegister() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']"));
+    }
+
+    public WebElement getTitle() {
+        return Constant.WEBDRIVER.findElement(By.tagName("title"));
+    }
+
+    public WebElement getTabTimeTable() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/TrainTimeListPage.cshtml']"));
+    }
+
+    public WebElement getBookTicket() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/BookTicketPage.cshtml']"));
+    }
+
+    public WebElement getTicketPrice() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/TrainPriceListPage" +
+                ".cshtml']"));
+    }
+
+    public WebElement getFQA() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='#']"));
+    }
+
+    public WebElement getContact() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/Contact.cshtml']"));
+    }
+
+    public WebElement getTabMyTicket() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Page/ManageTicket.cshtml']"));
+    }
+
+    public WebElement getTabChangePassWord() {
+        return Constant.WEBDRIVER.findElement(By.xpath("//div[@id='menu']//a[@href='/Account/ChangePassword.cshtml']"));
+    }
 
     //Method
     public String getWelcomeMessage() {
-        return getLblWelcomeMessage.getText();
+        return this.getLblWelcomeMessage().getText();
     }
 
     public void gotoLoginPage() {
-        getTabLogin.click();
+        this.getTabLogin().click();
     }
 
     public void gotoRegisterPage() {
-        getTabRegister.click();
+        this.getTabRegister().click();
     }
 
     public void logOut() {
-        getTabLogout.click();
+        this.getTabLogout().click();
     }
 
     public void gotoTimeTable() {
-        getTabTimeTable.click();
+        this.getTabTimeTable().click();
     }
 
     public void gotoBookTicketPage() {
-        getBookTicket.click();
+        this.getBookTicket().click();
     }
 
     public void gotoBookPricePage() {
-        getTicketPrice.click();
+        this.getTicketPrice().click();
     }
 
     public void gotoFQAPage() {
-        getFQA.click();
+        this.getFQA().click();
     }
 
     public void gotoContactPage() {
-        getContact.click();
+        this.getContact().click();
     }
 
     public void gotoMyTicketPage() {
-        getTabMyTicket.click();
+        this.getTabMyTicket().click();
     }
 
     public void gotoChangePasswordPage() {
-        getTabChangePassWord.click();
+        this.getTabChangePassWord().click();
     }
 
     public String getTitlePage() {
-        return getTitle.getText();
+        return this.getTitle().getText();
     }
-
 }

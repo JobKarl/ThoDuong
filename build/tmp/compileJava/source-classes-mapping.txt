@@ -14,6 +14,8 @@ PageObject/FQAPage.java
  PageObject.FQAPage
 PageObject/RegisterPage.java
  PageObject.RegisterPage
+TestCases/test.java
+ TestCases.test
 PageObject/ChangePasswordPage.java
  PageObject.ChangePasswordPage
 PageObject/TicketPricePage.java

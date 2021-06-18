@@ -1,4 +1,5 @@
 package TestCases;
+
 import constant.Constant;
 import Common.Utilities;
 import PageObject.*;
@@ -6,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Set1Test extends BaseTest {
-    
+
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final Utilities tools = new Utilities();
@@ -19,7 +20,7 @@ public class Set1Test extends BaseTest {
     public String actualMsg;
     public String expectedMsg;
 
-    @Test(priority = 0)
+    @Test
     public void TC01() {
         System.out.println("TC01 - User can log into Railway with valid username and password");
         homePage.open();
@@ -30,18 +31,18 @@ public class Set1Test extends BaseTest {
         homePage.logOut();
     }
 
-    @Test(priority = 1)
+    @Test
     public void TC02() {
         System.out.println("TC02 - User can't login with blank \"Username\" textbox\n");
         homePage.gotoLoginPage();
         loginPage.login("", Constant.PASSWORD);
         actualMsg = loginPage.getErrorMsg();
-        expectedMsg = "There was a problem with your login and/or errors exist in your form. ";
+        expectedMsg = "There was a problem with your login and/or errors exist in your form.";
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");
         loginPage.getTxtUsername().clear();
     }
 
-    @Test(priority = 2)
+    @Test
     public void TC03() {
         System.out.println("TC03 - User cannot log into Railway with invalid password.");
         loginPage.login(Constant.USERNAME, tools.getRandomNumber(10000000, 1000000000));
@@ -50,7 +51,7 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");
     }
 
-    @Test(priority = 3)
+    @Test
     public void TC04() {
         System.out.println("TC04 - Login page displays when un-logged User clicks on \"Book ticket\" tab");
         loginPage.gotoBookTicketPage();
@@ -59,7 +60,7 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg.trim(), "Login page is not displayed.");
     }
 
-    @Test(priority = 4)
+    @Test
     public void TC05() {
         System.out.println("TC05 - System shows message when user enters wrong password several times.");
         for (int i = 1; i < 5; i++) {
@@ -72,28 +73,27 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");
     }
 
-    @Test(priority = 5)
+    @Test
     public void TC06() {
         System.out.println("TC06 - Additional pages display once user logged in");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         //check page tab is displayed
-        Assert.assertTrue(homePage.getTabMyTicket.isDisplayed(), "MyTicket tab is not present.");
-        Assert.assertTrue(homePage.getTabLogout.isDisplayed(), "Logout tab is not present.");
-        Assert.assertTrue(homePage.getTabChangePassWord.isDisplayed(), "ChangePassword tab is not present.");
+        Assert.assertTrue(homePage.getTabMyTicket().isDisplayed(), "MyTicket tab is not present.");
+        Assert.assertTrue(homePage.getTabLogout().isDisplayed(), "Logout tab is not present.");
+        Assert.assertTrue(homePage.getTabChangePassWord().isDisplayed(), "ChangePassword tab is not present.");
         //check My ticket page opens
         homePage.gotoMyTicketPage();
-        actualMsg = homePage.getTitle.getText();
+        actualMsg = Constant.WEBDRIVER.getTitle();
         expectedMsg = "Safe Railway - My Ticket";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Myticket page is opended");
         // check ChangePassword page opens
         homePage.gotoChangePasswordPage();
-        actualMsg = homePage.getTitle.getText();
+        actualMsg = Constant.WEBDRIVER.getTitle();
         expectedMsg = "Safe Railway - Change Password";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Changepassword page is opended.");
-        homePage.logOut();
     }
 
-    @Test(priority = 8)
+    @Test
     public void TC07() {
         System.out.println("TC07 - User can create new account");
         homePage.gotoRegisterPage();
@@ -104,16 +104,17 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "user failed to register new account");
     }
 
-    @Test(priority = 9)
+    @Test
     public void TC09() {
         System.out.println("TC09 - User can change password");
+        homePage.open();
         homePage.gotoChangePasswordPage();
         actualMsg = changePwd.changePassword(Constant.registerPassword, Constant.newPassword, Constant.newPassword);
         expectedMsg = "Your password has been updated";
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to change new password");
     }
 
-    @Test(priority = 6)
+    @Test
     public void TC10() {
         System.out.println("TC10 - User can't create account with \"Confirm password\" is not the same with " +
                 "\"Password\"");
@@ -125,9 +126,11 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to receive error message or receive another message");
     }
 
-    @Test(priority = 7)
+    @Test
     public void TC11() {
         System.out.println("TC11 - User can't create account while password and PID fields are empty");
+        homePage.logOut();
+        homePage.gotoRegisterPage();
         registerAccount.registerAcc(Constant.registerUsername, "", "", "");
         //Message above forms
         actualMsg = registerAccount.messageError();
@@ -143,34 +146,34 @@ public class Set1Test extends BaseTest {
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to receive error message or different message");
     }
 
-    @Test(priority = 7)
+    @Test
     public void TC14() {
         System.out.println("TC14 - User can book 1 ticket at a time");
         homePage.gotoBookTicketPage();
-        actualMsg = bookTicket.buyTicket(5, "Sài Gòn", "Nha Trang", "Soft bed with air conditioner", 1);
+        actualMsg = bookTicket.buyTicket("5", "Sài Gòn", "Nha Trang", "Soft bed with air conditioner", "1");
         expectedMsg = "Ticket Booked Successfully!";
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to receive message");
         //check ticket's information
-        Assert.assertTrue(bookTicket.bookedTicket("Sài Gòn", "Nha Trang", "Soft bed with air conditioner",
+        Assert.assertTrue(bookTicket.getBookedTicket("Sài Gòn", "Nha Trang", "Soft bed with air conditioner",
                 tools.toDaysString(5), 1).isDisplayed(), "Wrong ticket's information is displayed");
 
     }
 
-    @Test(priority = 7)
+    @Test
     public void TC15() {
         System.out.println("TC15 - User can open \"Book ticket\" page by clicking on \"Book ticket\" link in \"Train " +
                 "timetable\" page");
         homePage.gotoTimeTable();
         timeTable.clickButtonTimeTable("Huế", "Sài Gòn", "book ticket");
-        actualMsg = bookTicket.getDrpDepartFrom.getText();
+        actualMsg = bookTicket.getDrpDepartFrom().getText();
         expectedMsg = "Huế";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Wrong depart from");
-        actualMsg = bookTicket.getDrpArriveAt.getText();
+        actualMsg = bookTicket.getDrpArriveAt().getText();
         expectedMsg = "Sài Gòn";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Wrong arrive at");
     }
 
-    @Test(priority = 7)
+    @Test
     public void TC16() {
         System.out.println("TC16 - User can cancel a ticket");
         homePage.gotoMyTicketPage();
