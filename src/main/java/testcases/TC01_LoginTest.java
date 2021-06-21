@@ -17,7 +17,7 @@ public class TC01_LoginTest extends BaseTest {
         System.out.println("TC01 - User can log into Railway with valid username and password");
         homePage.open();
         homePage.gotoLoginPage();
-        actualMsg = loginPage.login(Constant.USERNAME, Constant.PASSWORD).getWelcomeMessage();
+        actualMsg = loginPage.login(System.getenv("username"), System.getenv("password")).getWelcomeMessage();
         expectedMsg = "Welcome " + Constant.USERNAME;
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }

@@ -19,10 +19,11 @@ public class TC09_ChangePwd extends BaseTest {
         System.out.println("TC09 - User can change password");
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(System.getenv("username"), System.getenv("password"));
 
         homePage.gotoChangePasswordPage();
-        actualMsg = changePwd.changePassword(Constant.registerPassword, Constant.newPassword, Constant.newPassword);
+        actualMsg = changePwd.changePassword(System.getenv("password"),System.getenv("newpassword"),System.getenv(
+                "newpassword"));
         expectedMsg = "Your password has been updated";
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to change new password or wrong message");
     }

@@ -17,7 +17,7 @@ public class TC16_CancelTicket extends BaseTest {
         //login
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(System.getenv("username"), System.getenv("password"));
         //go to MyTicketPage
         homePage.gotoMyTicketPage();
         //cancel the ticket

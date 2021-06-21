@@ -25,7 +25,7 @@ public class TC15_ClickBookTick_atTimeTablePage extends BaseTest {
         //login
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(System.getenv("username"), System.getenv("password"));
         //click Timetable
         homePage.gotoTimeTable();
         //click book ticket button

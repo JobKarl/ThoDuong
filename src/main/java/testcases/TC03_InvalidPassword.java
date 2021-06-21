@@ -19,7 +19,7 @@ public class TC03_InvalidPassword extends BaseTest {
         System.out.println("TC03 - User cannot log into Railway with invalid password.");
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, math.getRandomNumber(10000000, 1000000000));
+        loginPage.login(System.getenv("username"), math.getRandomNumber(10000000, 1000000000));
         actualMsg = loginPage.getErrorMsg();
         expectedMsg = "There was a problem with your login and/or errors exist in your form.";
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");

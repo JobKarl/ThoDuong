@@ -1,7 +1,7 @@
 pageobject/MyTicketPage.java
  pageobject.MyTicketPage
-testcases/TC03_InvalidPassword.java
- testcases.TC03_InvalidPassword
+testcases/TC11_EmptyPasswordPID.java
+ testcases.TC11_EmptyPasswordPID
 pageobject/GeneralPage.java
  pageobject.GeneralPage
 pageobject/ForgotPasswordPage.java
@@ -18,16 +18,16 @@ common/InteractPage.java
  common.InteractPage
 common/ExistElement.java
  common.ExistElement
-testcases/TC06_AdditionalPage_WhenLogin.java
- testcases.TC06_AdditionalPage_WhenLogin
+testcases/BaseTest.java
+ testcases.BaseTest
 pageobject/TimeTablePage.java
  pageobject.TimeTablePage
-pageobject/ChangePasswordPage.java
- pageobject.ChangePasswordPage
+pageobject/LoginPage.java
+ pageobject.LoginPage
 common/PopupMessage.java
  common.PopupMessage
-testcases/TC05_EnterWrongPwdManyTimes.java
- testcases.TC05_EnterWrongPwdManyTimes
+pageobject/RegisterPage.java
+ pageobject.RegisterPage
 common/Mathematics.java
  common.Mathematics
 common/Utilities.java
@@ -36,31 +36,31 @@ pageobject/BookTicketPage.java
  pageobject.BookTicketPage
 common/FormatDate.java
  common.FormatDate
-testcases/TC15_ClickBookTick_atTimeTablePage.java
- testcases.TC15_ClickBookTick_atTimeTablePage
-testcases/TC02_BlankUsername.java
- testcases.TC02_BlankUsername
-testcases/TC01_LoginTest.java
- testcases.TC01_LoginTest
-testcases/BaseTest.java
- testcases.BaseTest
-testcases/TC16_CancelTicket.java
- testcases.TC16_CancelTicket
-testcases/TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet.java
- testcases.TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet
 pageobject/HomePage.java
  pageobject.HomePage
-pageobject/LoginPage.java
- pageobject.LoginPage
-testcases/TC11_EmptyPasswordPID.java
- testcases.TC11_EmptyPasswordPID
-testcases/TC10_NotSameConfirmPwd.java
- testcases.TC10_NotSameConfirmPwd
-testcases/TC07_CreateAccount.java
- testcases.TC07_CreateAccount
-pageobject/RegisterPage.java
- pageobject.RegisterPage
+testcases/TC15_ClickBookTick_atTimeTablePage.java
+ testcases.TC15_ClickBookTick_atTimeTablePage
+testcases/TC03_InvalidPassword.java
+ testcases.TC03_InvalidPassword
+testcases/TC01_LoginTest.java
+ testcases.TC01_LoginTest
+testcases/TC05_EnterWrongPwdManyTimes.java
+ testcases.TC05_EnterWrongPwdManyTimes
 testcases/TC09_ChangePwd.java
  testcases.TC09_ChangePwd
+testcases/TC10_NotSameConfirmPwd.java
+ testcases.TC10_NotSameConfirmPwd
+testcases/TC16_CancelTicket.java
+ testcases.TC16_CancelTicket
 testcases/TC14_BookTicket.java
  testcases.TC14_BookTicket
+testcases/TC07_CreateAccount.java
+ testcases.TC07_CreateAccount
+pageobject/ChangePasswordPage.java
+ pageobject.ChangePasswordPage
+testcases/TC06_AdditionalPage_WhenLogin.java
+ testcases.TC06_AdditionalPage_WhenLogin
+testcases/TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet.java
+ testcases.TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet
+testcases/TC02_BlankUsername.java
+ testcases.TC02_BlankUsername

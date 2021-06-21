@@ -20,7 +20,7 @@ public class TC05_EnterWrongPwdManyTimes extends BaseTest {
         homePage.open();
         homePage.gotoLoginPage();
         for (int i = 1; i < 5; i++) {
-            loginPage.login(Constant.USERNAME, math.getRandomNumber(10000000, 1000000000));
+            loginPage.login(System.getenv("username"), math.getRandomNumber(10000000, 1000000000));
         }
         actualMsg = loginPage.getErrorMsg();
         expectedMsg = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to " +

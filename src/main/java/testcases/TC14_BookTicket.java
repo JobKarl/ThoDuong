@@ -21,7 +21,7 @@ public class TC14_BookTicket extends BaseTest {
         //login
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(System.getenv("username"), System.getenv("password"));
         //bookTicket
         homePage.gotoBookTicketPage();
         actualMsg = bookTicket.buyTicket("6/30/2021", "Sài Gòn", "Nha Trang", "Soft bed with " +

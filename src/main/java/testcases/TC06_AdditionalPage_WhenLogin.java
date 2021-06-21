@@ -17,7 +17,7 @@ public class TC06_AdditionalPage_WhenLogin extends BaseTest {
         System.out.println("TC06 - Additional pages display once user logged in");
         homePage.open();
         homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(System.getenv("username"), System.getenv("password"));
         //check page tab is displayed
         Assert.assertTrue(homePage.getTabMyTicket().isDisplayed(), "MyTicket tab is not present.");
         Assert.assertTrue(homePage.getTabLogout().isDisplayed(), "Logout tab is not present.");
