@@ -1,34 +1,66 @@
-PageObject/ContactPage.java
- PageObject.ContactPage
-PageObject/BookTicketPage.java
- PageObject.BookTicketPage
-TestCases/BaseTest.java
- TestCases.BaseTest
+pageobject/MyTicketPage.java
+ pageobject.MyTicketPage
+testcases/TC03_InvalidPassword.java
+ testcases.TC03_InvalidPassword
+pageobject/GeneralPage.java
+ pageobject.GeneralPage
+pageobject/ForgotPasswordPage.java
+ pageobject.ForgotPasswordPage
+pageobject/TicketPricePage.java
+ pageobject.TicketPricePage
+pageobject/ContactPage.java
+ pageobject.ContactPage
+pageobject/FQAPage.java
+ pageobject.FQAPage
 constant/Constant.java
  constant.Constant
-TestCases/Set1Test.java
- TestCases.Set1Test
-PageObject/MyTicketPage.java
- PageObject.MyTicketPage
-PageObject/FQAPage.java
- PageObject.FQAPage
-PageObject/RegisterPage.java
- PageObject.RegisterPage
-TestCases/test.java
- TestCases.test
-PageObject/ChangePasswordPage.java
- PageObject.ChangePasswordPage
-PageObject/TicketPricePage.java
- PageObject.TicketPricePage
-Common/Utilities.java
- Common.Utilities
-PageObject/HomePage.java
- PageObject.HomePage
-PageObject/TimeTablePage.java
- PageObject.TimeTablePage
-PageObject/LoginPage.java
- PageObject.LoginPage
-PageObject/GeneralPage.java
- PageObject.GeneralPage
-PageObject/ForgotPasswordPage.java
- PageObject.ForgotPasswordPage
+common/InteractPage.java
+ common.InteractPage
+common/ExistElement.java
+ common.ExistElement
+testcases/TC06_AdditionalPage_WhenLogin.java
+ testcases.TC06_AdditionalPage_WhenLogin
+pageobject/TimeTablePage.java
+ pageobject.TimeTablePage
+pageobject/ChangePasswordPage.java
+ pageobject.ChangePasswordPage
+common/PopupMessage.java
+ common.PopupMessage
+testcases/TC05_EnterWrongPwdManyTimes.java
+ testcases.TC05_EnterWrongPwdManyTimes
+common/Mathematics.java
+ common.Mathematics
+common/Utilities.java
+ common.Utilities
+pageobject/BookTicketPage.java
+ pageobject.BookTicketPage
+common/FormatDate.java
+ common.FormatDate
+testcases/TC15_ClickBookTick_atTimeTablePage.java
+ testcases.TC15_ClickBookTick_atTimeTablePage
+testcases/TC02_BlankUsername.java
+ testcases.TC02_BlankUsername
+testcases/TC01_LoginTest.java
+ testcases.TC01_LoginTest
+testcases/BaseTest.java
+ testcases.BaseTest
+testcases/TC16_CancelTicket.java
+ testcases.TC16_CancelTicket
+testcases/TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet.java
+ testcases.TC04_ClickBookTicketPage_NavigatetoLoginPage_WhenNotLoginYet
+pageobject/HomePage.java
+ pageobject.HomePage
+pageobject/LoginPage.java
+ pageobject.LoginPage
+testcases/TC11_EmptyPasswordPID.java
+ testcases.TC11_EmptyPasswordPID
+testcases/TC10_NotSameConfirmPwd.java
+ testcases.TC10_NotSameConfirmPwd
+testcases/TC07_CreateAccount.java
+ testcases.TC07_CreateAccount
+pageobject/RegisterPage.java
+ pageobject.RegisterPage
+testcases/TC09_ChangePwd.java
+ testcases.TC09_ChangePwd
+testcases/TC14_BookTicket.java
+ testcases.TC14_BookTicket

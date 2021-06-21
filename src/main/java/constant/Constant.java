@@ -10,6 +10,6 @@ public class Constant {
     public static String registerUsername = Math.floor(Math.random()*111111)+"thoduong@logigeear.com";
     public static final String registerPassword ="12345678";
     public static final String registerID = "1231254215";
-    public static final String notSameConfirmPassword = "12345678";
+    public static final String notSameConfirmPassword = "123456789";
     public static final String newPassword = "12345678";
 }
