@@ -9,7 +9,6 @@ import pageobject.RegisterPage;
 public class TC11_EmptyPasswordPID extends BaseTest{
     private final HomePage homePage = new HomePage();
     private final RegisterPage registerAccount = new RegisterPage();
-    private String actualMsg;
     private String expectedMsg;
     @Test
     public void TC11() {
@@ -18,7 +17,7 @@ public class TC11_EmptyPasswordPID extends BaseTest{
         homePage.gotoRegisterPage();
         registerAccount.registerAcc(Constant.registerUsername, "", "", "");
         //Message above forms
-        actualMsg = registerAccount.messageError();
+        String actualMsg = registerAccount.messageError();
         expectedMsg = "There're errors in the form. Please correct the errors and try again.";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "User failed to receive error message or different message");
         //Message at password fields

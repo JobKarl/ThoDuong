@@ -17,13 +17,17 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
-    // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
-    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+    // https://mvnrepository.com/artifact/com.aventstack/extentreports
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.0.6'
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    // https://mvnrepository.com/artifact/ru.noties/listeners
+//    implementation group: 'ru.noties', name: 'listeners', version: '1.0.1'
     // https://mvnrepository.com/artifact/org.testng/testng
     testImplementation group: 'org.testng', name: 'testng', version: '6.14.3'
     apply plugin: 'java'
-    compileJava {options.encoding = "UTF-8"}
-    compileTestJava {options.encoding = "UTF-8"}
+    compileJava { options.encoding = "UTF-8" }
+    compileTestJava { options.encoding = "UTF-8" }
     // https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot
     implementation group: 'ru.yandex.qatools.ashot', name: 'ashot', version: '1.5.4'
 

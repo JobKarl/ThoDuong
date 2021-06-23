@@ -1,13 +1,13 @@
 package pageobject;
 
-import common.Utilities;
+import common.InteractPage;
 import constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends GeneralPage {
     //objects =
-    private Utilities tools = new Utilities();
+    private InteractPage interactPage = new InteractPage();
     //Elements
     public WebElement getTxtUsername() {
         return Constant.WEBDRIVER.findElement(By.cssSelector("#username"));
@@ -37,7 +37,7 @@ public class LoginPage extends GeneralPage {
 //Submit login credentials
         this.getTxtUsername().sendKeys(username);
         this.getTxtPassword().sendKeys(password);
-        tools.scrollDownToBottom();
+        interactPage.scrollDownToBottom();
         this.getBtnLogin().click();
 //Land on Hone page
         return new HomePage();

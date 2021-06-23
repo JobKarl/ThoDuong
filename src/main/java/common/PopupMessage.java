@@ -9,6 +9,6 @@ public class PopupMessage {
     public void dismiss(){
         Constant.WEBDRIVER.switchTo().alert().dismiss();
     }
-    public void alertMessage(){
+    public void getTxtAlertMessage(){
         Constant.WEBDRIVER.switchTo().alert().getText();}
 }

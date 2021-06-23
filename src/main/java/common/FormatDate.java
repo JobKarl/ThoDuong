@@ -9,17 +9,33 @@ import java.util.Date;
 
 public class FormatDate {
 
-    public String formatDateString(String date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("mmddyyyy");
-        return dateFormat.format(date);
-    }
-    public String formatDate(){
+    public String formatDateString() {
         Date today = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(today);
-        cal.add(Calendar.DATE,4);
-        DateTimeFormatter myFormatter = DateTimeFormatter.ofPattern("mm/DD/YYYY");
+        cal.add(Calendar.DATE, 4);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("Mddyyyy");
         //convert calendar to date
-        return null;
+        return dateFormat.format(cal.getTime());
+    }
+
+    public String formatDate() {
+        Date today = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.DATE, 4);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy");
+        //convert calendar to date
+        return dateFormat.format(cal.getTime());
+    }
+
+    public String formatTime() {
+        Date today = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+        cal.add(Calendar.DATE, 4);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy-hh-mm-ss");
+        //convert calendar to date
+        return dateFormat.format(cal.getTime());
     }
 }

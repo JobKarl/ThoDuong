@@ -9,8 +9,6 @@ import pageobject.LoginPage;
 public class TC06_AdditionalPage_WhenLogin extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC06() {
@@ -24,8 +22,8 @@ public class TC06_AdditionalPage_WhenLogin extends BaseTest {
         Assert.assertTrue(homePage.getTabChangePassWord().isDisplayed(), "ChangePassword tab is not present.");
         //check My ticket page opens
         homePage.gotoMyTicketPage();
-        actualMsg = Constant.WEBDRIVER.getTitle();
-        expectedMsg = "Safe Railway - My Ticket";
+        String actualMsg = Constant.WEBDRIVER.getTitle();
+        String expectedMsg = "Safe Railway - My Ticket";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Myticket page is opended");
         // check ChangePassword page opens
         homePage.gotoChangePasswordPage();

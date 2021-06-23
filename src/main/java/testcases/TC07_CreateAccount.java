@@ -11,8 +11,6 @@ public class TC07_CreateAccount extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final RegisterPage registerAccount = new RegisterPage();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC07() {
@@ -21,8 +19,8 @@ public class TC07_CreateAccount extends BaseTest {
         homePage.gotoRegisterPage();
         registerAccount.registerAcc(Constant.registerUsername, Constant.registerPassword, Constant.registerPassword,
                 Constant.registerID);
-        actualMsg = registerAccount.successMessage();
-        expectedMsg = "Thank you for registering your account";
+        String actualMsg = registerAccount.successMessage();
+        String expectedMsg = "Thank you for registering your account";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "user failed to register new account");
     }
 }

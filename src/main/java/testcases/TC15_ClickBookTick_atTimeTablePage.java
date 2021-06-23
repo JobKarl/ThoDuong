@@ -15,8 +15,6 @@ public class TC15_ClickBookTick_atTimeTablePage extends BaseTest {
     private final BookTicketPage bookTicket = new BookTicketPage();
     private final TimeTablePage timeTable = new TimeTablePage();
     private final LoginPage loginPage = new LoginPage();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC15() {
@@ -31,8 +29,8 @@ public class TC15_ClickBookTick_atTimeTablePage extends BaseTest {
         //click book ticket button
         timeTable.clickButtonTimeTable("Huế", "Sài Gòn", "Book ticket");
         //checkpoint
-        actualMsg = bookTicket.getTxtDepartFrom("Huế").getText();
-        expectedMsg = "Huế";
+        String actualMsg = bookTicket.getTxtDepartFrom("Huế").getText();
+        String expectedMsg = "Huế";
         Assert.assertEquals(actualMsg.trim(), expectedMsg, "Wrong depart from");
         actualMsg = bookTicket.getTxtArriveAt("Sài Gòn").getText();
         expectedMsg = "Sài Gòn";

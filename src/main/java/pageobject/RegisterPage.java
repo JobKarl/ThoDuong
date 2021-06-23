@@ -2,7 +2,6 @@ package pageobject;
 
 import common.InteractPage;
 import constant.Constant;
-import common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

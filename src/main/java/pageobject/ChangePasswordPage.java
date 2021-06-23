@@ -7,7 +7,7 @@ import constant.Constant;
 
 public class ChangePasswordPage extends GeneralPage {
     //Objects.
-    private InteractPage interactPage = new InteractPage();
+    private final InteractPage interactPage = new InteractPage();
 
     //elements
     public WebElement getTxtCurrentPassword() {

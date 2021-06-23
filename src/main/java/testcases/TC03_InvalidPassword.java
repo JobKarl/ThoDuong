@@ -11,8 +11,6 @@ public class TC03_InvalidPassword extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final Mathematics math = new Mathematics();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC03() {
@@ -20,8 +18,8 @@ public class TC03_InvalidPassword extends BaseTest {
         homePage.open();
         homePage.gotoLoginPage();
         loginPage.login(System.getenv("username"), math.getRandomNumber(10000000, 1000000000));
-        actualMsg = loginPage.getErrorMsg();
-        expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+        String actualMsg = loginPage.getErrorMsg();
+        String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");
     }
 }

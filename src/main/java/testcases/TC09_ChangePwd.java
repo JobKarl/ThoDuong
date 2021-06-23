@@ -11,8 +11,6 @@ public class TC09_ChangePwd extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final ChangePasswordPage changePwd = new ChangePasswordPage();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC09() {
@@ -22,9 +20,9 @@ public class TC09_ChangePwd extends BaseTest {
         loginPage.login(System.getenv("username"), System.getenv("password"));
 
         homePage.gotoChangePasswordPage();
-        actualMsg = changePwd.changePassword(System.getenv("password"),System.getenv("newpassword"),System.getenv(
+        String actualMsg = changePwd.changePassword(System.getenv("password"), System.getenv("newpassword"), System.getenv(
                 "newpassword"));
-        expectedMsg = "Your password has been updated";
+        String expectedMsg = "Your password has been updated";
         Assert.assertEquals(actualMsg, expectedMsg, "User failed to change new password or wrong message");
     }
 }

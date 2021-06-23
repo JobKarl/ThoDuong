@@ -1,7 +1,9 @@
 package testcases;
 
 import common.ExistElement;
+import common.FormatDate;
 import constant.Constant;
+import dataobject.TicketInformation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobject.*;
@@ -10,6 +12,8 @@ public class TC16_CancelTicket extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final MyTicketPage myTicket = new MyTicketPage();
     private final LoginPage loginPage = new LoginPage();
+    private final FormatDate formatDate = new FormatDate();
+    private final TicketInformation inf = new TicketInformation();
 
     @Test
     public void TC16() {
@@ -21,8 +25,8 @@ public class TC16_CancelTicket extends BaseTest {
         //go to MyTicketPage
         homePage.gotoMyTicketPage();
         //cancel the ticket
-        myTicket.deleteTicket("Sài Gòn", "Nha Trang", "Soft bed with air conditioner", "6/30/2021", 1, "New");
-        Assert.assertEquals(0, myTicket.getTicket("Sài Gòn", "Nha Trang", "Soft bed with air conditioner",
-                "6/30/2021", 1, "New").size(), "Ticket was not deleted");
+        myTicket.deleteTicket(inf.departFrom[0], inf.arriveAt[1], inf.typeSeat[5], formatDate.formatDate(), 1, inf.status[0]);
+        Assert.assertFalse(myTicket.checkTicketExist(inf.departFrom[0], inf.arriveAt[1], inf.typeSeat[5],
+                formatDate.formatDate(), 1, inf.status[0]));
     }
 }

@@ -9,8 +9,6 @@ import org.testng.annotations.Test;
 public class TC02_BlankUsername extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
-    private String actualMsg;
-    private String expectedMsg;
 
     @Test
     public void TC02() {
@@ -18,8 +16,8 @@ public class TC02_BlankUsername extends BaseTest {
         homePage.open();
         homePage.gotoLoginPage();
         loginPage.login("", System.getenv("password"));
-        actualMsg = loginPage.getErrorMsg();
-        expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+        String actualMsg = loginPage.getErrorMsg();
+        String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed or displayed wrong message.");
     }
 }

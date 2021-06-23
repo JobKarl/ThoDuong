@@ -3,8 +3,8 @@ package pageobject;
 import common.FormatDate;
 import common.InteractPage;
 import constant.Constant;
-import common.Utilities;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -12,20 +12,25 @@ public class BookTicketPage extends GeneralPage {
     //objects.
     private final FormatDate formatDate = new FormatDate();
     private final InteractPage interactPage = new InteractPage();
+
     //element
     public WebElement getDrpDepartDate() {
         return Constant.WEBDRIVER.findElement(By.name("Date"));
     }
 
-    public WebElement getTxtArriveAt(String arriveStation){return Constant.WEBDRIVER.findElement(By.xpath("//select" +
-            "[@name='ArriveStation']/option[text()='"+arriveStation+"']"));}
+    public WebElement getTxtArriveAt(String arriveStation) {
+        return Constant.WEBDRIVER.findElement(By.xpath("//select" +
+                "[@name='ArriveStation']/option[text()='" + arriveStation + "']"));
+    }
 
     public WebElement getDrpDepartFrom() {
         return Constant.WEBDRIVER.findElement(By.name("DepartStation"));
     }
 
-    public WebElement getTxtDepartFrom(String departStation) {return Constant.WEBDRIVER.findElement(By.xpath("//select[@name" +
-            "='DepartStation']/option[text()='"+departStation+"']"));}
+    public WebElement getTxtDepartFrom(String departStation) {
+        return Constant.WEBDRIVER.findElement(By.xpath("//select[@name" +
+                "='DepartStation']/option[text()='" + departStation + "']"));
+    }
 
     public WebElement getDrpArriveAt() {
         return Constant.WEBDRIVER.findElement(By.name("ArriveStation"));
@@ -47,15 +52,19 @@ public class BookTicketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(By.xpath("//h1[@align='center']"));
     }
 
-    public WebElement getBookedTicket(String departStation, String arriveStation, String seatType, String date,
-                                      int amount) {
+    public boolean getBookedTicket(String departStation, String arriveStation, String seatType, String date,
+                                   int amount) {
         interactPage.scrollDownToBottom();
-        return Constant.WEBDRIVER.findElement(By.xpath("//td[text()='" + departStation + "']/following-sibling::td[text" +
-                "()='" + arriveStation + "']/following-sibling::td[text()='" + seatType + "']/following-sibling::td[text()='" + date + "']/following-sibling::td[text()='" + amount + "']/.."));
+        try {
+            return Constant.WEBDRIVER.findElement(By.xpath("//td[text()='" + departStation + "']/following-sibling::td[text" +
+                    "()='" + arriveStation + "']/following-sibling::td[text()='" + seatType + "']/following-sibling::td[text()='" + date + "']/following-sibling::td[text()='" + amount + "']/..")).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     //method
-    void selectDepartDate(String date){
+    void selectDepartDate(String date) {
         Select drpDate = new Select(getDrpDepartDate());
         drpDate.selectByVisibleText(date);
     }
