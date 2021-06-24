@@ -6,12 +6,17 @@ import org.testng.annotations.Test;
 import pageobject.HomePage;
 import pageobject.LoginPage;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC06_AdditionalPage_WhenLogin extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
 
     @Test
-    public void TC06() {
+    public void TC06(Method method) {
+        startTest(method.getName(), "TC06 - Additional pages display once user logged in");
         System.out.println("TC06 - Additional pages display once user logged in");
         homePage.open();
         homePage.gotoLoginPage();

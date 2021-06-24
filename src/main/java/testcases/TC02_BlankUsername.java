@@ -6,12 +6,17 @@ import constant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC02_BlankUsername extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
 
     @Test
-    public void TC02() {
+    public void TC02(Method method) {
+        startTest(method.getName(), "TC02 - User can't login with blank \"Username\" textbox\n");
         System.out.println("TC02 - User can't login with blank \"Username\" textbox\n");
         homePage.open();
         homePage.gotoLoginPage();

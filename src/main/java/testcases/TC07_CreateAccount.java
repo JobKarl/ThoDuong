@@ -7,13 +7,18 @@ import pageobject.HomePage;
 import pageobject.LoginPage;
 import pageobject.RegisterPage;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC07_CreateAccount extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final RegisterPage registerAccount = new RegisterPage();
 
     @Test
-    public void TC07() {
+    public void TC07(Method method) {
+        startTest(method.getName(), "TC07 - User can create new account");
         System.out.println("TC07 - User can create new account");
         homePage.open();
         homePage.gotoRegisterPage();

@@ -15,7 +15,6 @@ public class TC01_LoginTest extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
 
-
     @Test
     public void TC01(Method method) {
         startTest(method.getName(), "TC01 - User can log into Railway with valid username and password");

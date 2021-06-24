@@ -7,13 +7,18 @@ import constant.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC03_InvalidPassword extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final LoginPage loginPage = new LoginPage();
     private final Mathematics math = new Mathematics();
 
     @Test
-    public void TC03() {
+    public void TC03(Method method) {
+        startTest(method.getName(), "TC03 - User cannot log into Railway with invalid password.");
         System.out.println("TC03 - User cannot log into Railway with invalid password.");
         homePage.open();
         homePage.gotoLoginPage();

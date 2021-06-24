@@ -6,7 +6,7 @@
         <listener class-name="common.listeners.AnnotationTransformer"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/SATTDN21.02.03/railway2/src/main/java/testcases">
-        <parameter name="browser" value="chrome">
+        <parameter name="browser" value="firefox">
             <classes>
                 <class name="testcases.TC01_LoginTest">
                     <methods>

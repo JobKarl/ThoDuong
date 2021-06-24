@@ -8,6 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobject.*;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC16_CancelTicket extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final MyTicketPage myTicket = new MyTicketPage();
@@ -16,7 +20,8 @@ public class TC16_CancelTicket extends BaseTest {
     private final TicketInformation inf = new TicketInformation();
 
     @Test
-    public void TC16() {
+    public void TC16(Method method) {
+        startTest(method.getName(), "TC16 - User can cancel a ticket");
         System.out.println("TC16 - User can cancel a ticket");
         //login
         homePage.open();

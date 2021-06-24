@@ -10,6 +10,10 @@ import pageobject.HomePage;
 import pageobject.LoginPage;
 import pageobject.TimeTablePage;
 
+import java.lang.reflect.Method;
+
+import static common.extentreport.ExtentTestManager.startTest;
+
 public class TC15_ClickBookTick_atTimeTablePage extends BaseTest {
     private final HomePage homePage = new HomePage();
     private final BookTicketPage bookTicket = new BookTicketPage();
@@ -17,9 +21,9 @@ public class TC15_ClickBookTick_atTimeTablePage extends BaseTest {
     private final LoginPage loginPage = new LoginPage();
 
     @Test
-    public void TC15() {
-        System.out.println("TC15 - User can open \"Book ticket\" page by clicking on \"Book ticket\" link in \"Train " +
-                "timetable\" page");
+    public void TC15(Method method) {
+        startTest(method.getName(), "TC15 - User can open \"Book ticket\" page by clicking on \"Book ticket\" link in \"Train timetable\" page");
+        System.out.println("TC15 - User can open \"Book ticket\" page by clicking on \"Book ticket\" link in \"Train timetable\" page");
         //login
         homePage.open();
         homePage.gotoLoginPage();
